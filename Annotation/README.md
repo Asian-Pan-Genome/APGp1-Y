@@ -36,7 +36,7 @@ The pipeline integrates public and custom tools to annotate the following featur
 **Generate chain files using nf-LO:**
 ```bash
   nextflow run nf-LO-1.8.0 \
-    --source CHM13.Y.fasta \
+    --source CHM13.chrY.fa \
     --target sample.chrY.fasta \
     --outdir sample_dir \
     -profile conda --aligner minimap2
@@ -45,7 +45,7 @@ The pipeline integrates public and custom tools to annotate the following featur
 **process chain file with CHM13:**
 ```bash
 python ~/Software/chaintools-0.1/src/split.py -c sample_dir/liftover.chain -o sample.CHM13.split.chain
-python ~/Software/chaintools-0.1/src/to_paf.py -c sample.CHM13.split.chain  -t CHM13.Y.fasta -q sample.chrY.fasta -o sample.CHM13.split.paf
+python ~/Software/chaintools-0.1/src/to_paf.py -c sample.CHM13.split.chain  -t CHM13.chrY.fa -q sample.chrY.fasta -o sample.CHM13.split.paf
 cat sample.CHM13.split.paf | rb break-paf --max-size 10000  | rb trim-paf -r | rb invert | rb trim-paf -r | rb invert > sample.CHM13.out.paf
 ~/Software/paf2chain/paf2chain -i sample.CHM13.out.paf > sample.CHM13.out.chain
 rm sample.CHM13.chain sample.CHM13.split.chain sample.CHM13.split.paf
@@ -134,6 +134,10 @@ perl -lane 'if($F[4] eq "-"){($F[1], $F[2])=($F[2], $F[1])} print join("\t", @F)
 samtools faidx sample.chrY.fasta
 samtools faidx sample.chrX.fasta
 Rscript dotplot.X_ref.r sample.chrX.fasta.fai sample.chrY.fasta.fai align.mod sample.subregion.bed.anno sample.XY.dotplot.pdf
+```
+### 1.6 Gene annotation
+```bash
+liftoff sample.chrY.fa CHM13.chrY.fa -sc 0.95 -copies -g chm13v2.0_RefSeq_Liftoff_v5.1.chrY_unique_ids.gff3 -polish -o sample.chrY.CHM13.liftoff.gff -u sample.chrY.CHM13.unmapped_features.txt -dir chrY_intermediate_files -f type.list -exclude_partial -p 10
 ```
 ### Attribution and Copyright
 
