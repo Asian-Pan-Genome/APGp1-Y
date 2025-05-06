@@ -77,7 +77,7 @@ bedtools makewindows -g sample.size -w 100 | \
 bedtools nuc -fi sample.chrY.fasta -bed stdin | grep -v "#" | cut -f1,2,3,5 > sample.100bp.GC
 ```
 ### 1.3 Palindrome Annotation
-**Mapping**
+**Mapping(IR for example)**
 ```bash
 mkdir -p kmer
 meryl count k=15 output merylDB sample.chrY.fa
