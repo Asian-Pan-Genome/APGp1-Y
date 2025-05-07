@@ -25,7 +25,7 @@ cat veritymap_out/sample/sample_Mat.v0.9_errors.tsv |awk '{if(($3/$5)>=0.8)print
 
 - **GAVISUNK** (v1.0.0) was used to validate haplotype-resolved assemblies using ONT reads (20-mer default `SUNK_len`). Two Y assemblies were used as independent haplotypes.
 
-Representative visualizations from both tools are shown in *Supplementary Fig1. S3*, with some other results available under [`/data/gavisunk/`](#).
+Representative visualizations from both tools are shown in *Supplementary Fig1. S3*, with some other results available under [`/data/gavisunk/`](#/data/gavisunk).
 
 ---
 
