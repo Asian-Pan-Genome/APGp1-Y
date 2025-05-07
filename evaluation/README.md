@@ -8,18 +8,24 @@ To identify potential misassemblies in Y chromosome assemblies, we used two comp
   
 - **Flagger** (v0.3.2) was used for structural error detection based on read coverage anomalies. Y chromosome–specific regions were extracted from genome-wide Flagger results, including categories such as erroneous, collapsed, and duplicated regions.
 
-The **intersection and union** of NucFreq- and Flagger-flagged regions were computed using **bedtools**, and are available in BED format under `Data/Flagger_NucFreq`.
-
-> BED files of all flagged regions can be found under [`/data/flagged_regions/`](#).
+The **intersection and union** of NucFreq- and Flagger-flagged regions were computed using **bedtools**:
+```bash
+cat sample_list |while read id;do cat subregion|while read region;do len=$(grep -w "${region}" ${id}.chrY.subregion.bed| awk '{print $3-$2}' | awk '{sum+=$1} END {print sum+0}');cat ../flagger/${id}/${id}.collapsed.bed ../flagger/${id}/${id}.error.bed ../flagger/${id}/${id}.duplicated.bed|sortBed|bedtools merge -i - -d 1 |cat - <(tail -n +2 ../nucfreq/output/flag/${id}.chrY.tbl|cut -f 1,2,3)|sortBed |bedtools merge -i - -d 0|awk -v id="${id}" '{print id,$2,$3,$3-$2}' OFS='\t'|bedtools intersect -a - -b <(grep -w "${region}" ${id}.chrY.subregion.bed|awk -v id="${id}" '{print id,$2,$3}' OFS='\t' )|awk -v id="${id}" '{print id,$2,$3,$3-$2}' OFS='\t'|awk -v len=${len} -v region=${region} 'BEGIN {OFS="\t"} {sum += $4; count++} END {print region,sum/len}';done> merge/${id}.flagged.bed;done
+cat sample_list |while read id;do cat subregion|while read region;do len=$(grep -w "${region}" ${id}.chrY.subregion.bed| awk '{print $3-$2}' | awk '{sum+=$1} END {print sum+0}');cat ../flagger/${id}/${id}.collapsed.bed ../flagger/${id}/${id}.error.bed ../flagger/${id}/${id}.duplicated.bed|sortBed|bedtools merge -i - -d 1 |bedtools intersect -a - -b <(tail -n +2 ../nucfreq/output/flag/${id}.chrY.tbl|cut -f 1,2,3)|sortBed |bedtools merge -i - -d 0|awk -v id="${id}" '{print id,$2,$3,$3-$2}' OFS='\t'|bedtools intersect -a - -b <(grep -w "${region}" ${id}.chrY.subregion.bed|awk -v id="${id}" '{print id,$2,$3}' OFS='\t' )|awk -v id="${id}" '{print id,$2,$3,$3-$2}' OFS='\t'|awk -v len=${len} -v region=${region} 'BEGIN {OFS="\t"} {sum += $4; count++} END {print region,sum/len}';done > inter/${id}.flagged.bed;done
+```
 ---
 
 ### Complex Region Evaluation with VerityMap and GAVISUNK
 
 - **VerityMap** (v2.1.2) was used in `hifi-diploid` mode to detect assembly errors using PacBio HiFi reads. Regions with ≥80% discordant support were reported based on the `*_errors.tsv` output.
+```bash
+cat veritymap_out/sample/sample_Pat.v0.9_errors.tsv |awk '{if(($3/$5)>=0.8)print$1,$2,$2+200,$3,$4,$5,$6,$7}' OFS='\t'|bedtools merge -i - -c 4,6 -o sum |awk '{print$1,$2,$3,$4,$5,$4/$5}' OFS='\t' > sample_Pat.v0.9_errors.bed
+cat veritymap_out/sample/sample_Mat.v0.9_errors.tsv |awk '{if(($3/$5)>=0.8)print$1,$2,$2+200,$3,$4,$5,$6,$7}' OFS='\t'|bedtools merge -i - -c 4,6 -o sum |awk '{print$1,$2,$3,$4,$5,$4/$5}' OFS='\t' > sample_Mat.v0.9_errors.bed
+```
 
-- **GAVISUNK** (v1.0.0) was used to validate haplotype-resolved assemblies using ONT reads (20-mer default `SUNK_len`). Two Y assemblies were used as independent haplotypes. The required `gaps` file was retrieved from [Yanqing’s GitHub](#).
+- **GAVISUNK** (v1.0.0) was used to validate haplotype-resolved assemblies using ONT reads (20-mer default `SUNK_len`). Two Y assemblies were used as independent haplotypes.
 
-Representative visualizations from both tools are shown in *Supplementary Fig1. S3*, with full results available under [`/results/veritymap_gavisunk/`](#).
+Representative visualizations from both tools are shown in *Supplementary Fig1. S3*, with full results available under [`/data/gavisunk/`](#).
 
 ---
 
