@@ -32,11 +32,11 @@ Representative visualizations from both tools are shown in *Supplementary Fig1. 
 
 - **QV scores** were computed using **Merqury**, based on k-mer completeness from HiFi reads.
 
-- **GCI** (Genome Consistency Inspector; Chen et al., *Bioinformatics*, 2024) was used to quantify base-level structural continuity, combining HiFi and ONT alignments. Assemblies with or without phasing information were supported using the following command:
+- **GCI** (Genome Consistency Inspector; Chen et al., *Bioinformatics*, 2024) was used to quantify base-level structural continuity, combining HiFi and ONT alignments. Chromosome Y was evaluated using the following command:
 
 ```bash
-python GCI.py -r $mat_asm \
-  --hifi ${mat.winnowmap.hifi.bam} ${mat.minimap2.hifi.paf} \
-  --nano ${mat.winnowmap.ont.bam} ${mat.minimap2.ont.paf} \
+python GCI.py -r $pat_asm \
+  --hifi ${pat.winnowmap.hifi.bam} ${pat.minimap2.hifi.paf} \
+  --nano ${pat.winnowmap.ont.bam} ${pat.minimap2.ont.paf} \
   --chrs ${sample}#Pat#chrY \
   -t $threads -p -it pdf
