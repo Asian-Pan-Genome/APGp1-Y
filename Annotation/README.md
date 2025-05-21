@@ -4,7 +4,7 @@ This repository provides the annotation workflow, scripts, and key resources use
 
 ## Overview
 
-The pipeline integrates public and custom tools to annotate the following features on sample-specific `chrY` assemblies:
+The pipeline integrates public and custom tools to annotate the following features on `chrY` assemblies:
 
 - Subregion classification via **coordinate liftover** from CHM13v2.0  
 - Gene and pseudogene transfer via **Liftoff**  
