@@ -145,4 +145,4 @@ The script `dotplot.colors.r` and `dotplot.X_ref.r` is adapted from
 **EDFig3a_dotplot_idy.R** in the [T2T-HG002Y project by Arang Rhie et al.](https://github.com/arangrhie/T2T-HG002Y), originally available at:  
 https://github.com/arangrhie/T2T-HG002Y/blob/main/alignments/lastz/EDFig3a_dotplot_idy.R
 
-All credits for the original script design and plotting style belong to the authors of the T2T-HG002Y project. Modifications in this repository were made solely to match our dataset and annotation structure.
+The plotting style belong to the authors of the T2T-HG002Y project. Modifications in this repository were made solely to match our dataset and annotation structure.
