@@ -18,9 +18,7 @@ cat sample_list |while read id;do cat subregion|while read region;do len=$(grep 
 ### Complex Region Evaluation with VerityMap and GAVISUNK
 
 - **VerityMap** (v2.1.2) was used in `hifi-diploid` mode to detect assembly errors using PacBio HiFi reads. Regions with ≥80% discordant support were reported based on the `*_errors.tsv` output.
-```bash
-cat veritymap_out/sample/sample_Pat.v0.9_errors.tsv |awk '{if(($3/$5)>=0.8)print$1,$2,$2+200,$3,$4,$5,$6,$7}' OFS='\t'|bedtools merge -i - -c 4,6 -o sum |awk '{print$1,$2,$3,$4,$5,$4/$5}' OFS='\t' > sample_Pat.v0.9_errors.bed
-```
+
 
 - **GAVISUNK** (v1.0.0) was used to validate haplotype-resolved assemblies using ONT reads (20-mer default `SUNK_len`). Two Y assemblies were used as independent haplotypes.
 
