@@ -1,4 +1,4 @@
-## Assembly Quality Assessment
+## Y Chromosome Assembly Evaluation
 
 ### Error Detection Using NucFreq and Flagger
 
