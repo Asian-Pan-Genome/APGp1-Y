@@ -8,11 +8,8 @@ To identify potential misassemblies in Y chromosome assemblies, we used two comp
   
 - **Flagger** (v0.3.2) was used for structural error detection based on read coverage anomalies. Y chromosome–specific regions were extracted from genome-wide Flagger results, including categories such as erroneous, collapsed, and duplicated regions.
 
-The **intersection and union** of NucFreq- and Flagger-flagged regions were computed using **bedtools**:
-```bash
-cat sample_list |while read id;do cat subregion|while read region;do len=$(grep -w "${region}" ${id}.chrY.subregion.bed| awk '{print $3-$2}' | awk '{sum+=$1} END {print sum+0}');cat ../flagger/${id}/${id}.collapsed.bed ../flagger/${id}/${id}.error.bed ../flagger/${id}/${id}.duplicated.bed|sortBed|bedtools merge -i - -d 1 |cat - <(tail -n +2 ../nucfreq/output/flag/${id}.chrY.tbl|cut -f 1,2,3)|sortBed |bedtools merge -i - -d 0|awk -v id="${id}" '{print id,$2,$3,$3-$2}' OFS='\t'|bedtools intersect -a - -b <(grep -w "${region}" ${id}.chrY.subregion.bed|awk -v id="${id}" '{print id,$2,$3}' OFS='\t' )|awk -v id="${id}" '{print id,$2,$3,$3-$2}' OFS='\t'|awk -v len=${len} -v region=${region} 'BEGIN {OFS="\t"} {sum += $4; count++} END {print region,sum/len}';done> merge/${id}.flagged.bed;done
-cat sample_list |while read id;do cat subregion|while read region;do len=$(grep -w "${region}" ${id}.chrY.subregion.bed| awk '{print $3-$2}' | awk '{sum+=$1} END {print sum+0}');cat ../flagger/${id}/${id}.collapsed.bed ../flagger/${id}/${id}.error.bed ../flagger/${id}/${id}.duplicated.bed|sortBed|bedtools merge -i - -d 1 |bedtools intersect -a - -b <(tail -n +2 ../nucfreq/output/flag/${id}.chrY.tbl|cut -f 1,2,3)|sortBed |bedtools merge -i - -d 0|awk -v id="${id}" '{print id,$2,$3,$3-$2}' OFS='\t'|bedtools intersect -a - -b <(grep -w "${region}" ${id}.chrY.subregion.bed|awk -v id="${id}" '{print id,$2,$3}' OFS='\t' )|awk -v id="${id}" '{print id,$2,$3,$3-$2}' OFS='\t'|awk -v len=${len} -v region=${region} 'BEGIN {OFS="\t"} {sum += $4; count++} END {print region,sum/len}';done > inter/${id}.flagged.bed;done
-```
+The **intersection and union** of NucFreq- and Flagger-flagged regions were computed using **bedtools** `inter_merge.sh`
+
 ---
 
 ### Complex Region Evaluation with VerityMap and GAVISUNK
