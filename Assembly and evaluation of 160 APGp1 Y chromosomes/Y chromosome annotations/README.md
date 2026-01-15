@@ -1,6 +1,6 @@
 # Y Chromosome Annotation Pipeline
 
-This repository provides the annotation workflow, scripts, and key resources used for annotating **Y chromosomal subregions**, including satellites, amplicons, palindromes, genes, and repeats, as described in our [xxx](#).
+This repository provides the annotation workflow, scripts, and key resources used for annotating **Y chromosomal subregions**, including satellites, amplicons, palindromes, genes, and repeats.
 
 ## Overview
 
