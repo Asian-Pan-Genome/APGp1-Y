@@ -1,5 +1,7 @@
 ### Curated AMPL7 annotations
-<Amplicon annotations.zip>
+
+`Amplicon annotations.zip`
+
 #### Dotplot of self-alignments for AMPL7
 
 `bash AMPL7.self-align_dotplot.sh`
