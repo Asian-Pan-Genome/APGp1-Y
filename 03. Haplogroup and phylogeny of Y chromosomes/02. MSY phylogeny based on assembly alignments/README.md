@@ -22,28 +22,37 @@ phase2.chrYs.chm13.euchromatin.MSY.fasta.partition`
 ### tree collapse and merge
 `for i in {1..1657}; do nw_ed Blocks/Block$i/Block$i.treefile 'i & b<10' o > Blocks/Block$i/Block$i.treefile.collapsed; cat Blocks/Block$i/Block$i.treefile.collapsed >> raw.blocks.collapsed_tree_files; done`
 ### Astral for coalescent tree
-`cat Blocks/Block*/Block*.treefile.collapsed > Eu.RM_PAR_TSPY.blocks.collapsed_tree_files
-java -jar ~/Software/ASTRAL-5.7.1/Astral/astral.5.7.1.jar -i Eu.RM_PAR_TSPY.blocks.collapsed_tree_files -o 04.MSY.astral.tre`
+`cat Blocks/Block*/Block*.treefile.collapsed > Eu.RM_PAR_TSPY.blocks.collapsed_tree_files`
+
+`java -jar ~/Software/ASTRAL-5.7.1/Astral/astral.5.7.1.jar -i Eu.RM_PAR_TSPY.blocks.collapsed_tree_files -o 04.MSY.astral.tre`
 
 ## step5. 05.discoVista .sh
 ### estimate phylogenic discordance for the DE node between concatenation and coalescent trees 
-`export WS_HOME=/share/home/zhanglab/user/liujing/Software
-$WS_HOME/DiscoVista/src/utils/discoVista.py -a DE.samples.clade.txt -m 5 -p ./ -o DE_out -g OUT`
+`export WS_HOME=/share/home/zhanglab/user/liujing/Software`
+
+`$WS_HOME/DiscoVista/src/utils/discoVista.py -a DE.samples.clade.txt -m 5 -p ./ -o DE_out -g OUT`
 #### the 'estimated_gene_trees.tree' is the block gene trees; the 'estimated_species_tree.tree' is the iqtree.ml.tree generated above
 ### estimate wrf_distance for each 50Kb window, for example for the 57th window of AMPL2:
-`nw_prune -v 03.MSY.iqtree.treefile $(cat 50Kb_wins/AMP2_57.sam) > AMP2_57.species.tre
-Rscript calc_wrf_distance.R AMP2_57.gene_tree AMP2_57.species.tre AMP2_57.wrf_dis`
+`nw_prune -v 03.MSY.iqtree.treefile $(cat 50Kb_wins/AMP2_57.sam) > AMP2_57.species.tre`
+
+`Rscript calc_wrf_distance.R AMP2_57.gene_tree AMP2_57.species.tre AMP2_57.wrf_dis`
 #### the window gene tree was generated with iqtree
 
 ## step6. 06.mcmctree.sh
 ### calculate CV (coefficient of variance) value of root_to_tip_distances of block gene trees
-`perl get_MSY_gene_tree.pl MSY.euchromatin.filtered.maf_blocks MSY.euchromatin.gene_trees.list
-python calculate_tree_cv.py MSY.euchromatin.gene_trees.list MSY.euchromatin.gene_trees.CV_out`
+`perl get_MSY_gene_tree.pl MSY.euchromatin.filtered.maf_blocks MSY.euchromatin.gene_trees.list`
+
+`python calculate_tree_cv.py MSY.euchromatin.gene_trees.list MSY.euchromatin.gene_trees.CV_out`
 ### obtain the blocks with the lowest 20% CV values
-`perl extract_block_fasta.pl All_samples.list CHM13_Y.class.bed Gene_tree.CV20.blocks.list Gene_tree.CV20.blocks.fasta Gene_tree.CV20.blocks.fasta.partition.list
-seqret -sequence Gene_tree.CV20.blocks.fasta -outseq Gene_tree.CV20.blocks.nex -osformat nexus
-perl partition_nex.pl Gene_tree.CV20.blocks.fasta Gene_tree.CV20.blocks.fasta.partition.list 03_CV20`
+`perl extract_block_fasta.pl All_samples.list CHM13_Y.class.bed Gene_tree.CV20.blocks.list Gene_tree.CV20.blocks.fasta Gene_tree.CV20.blocks.fasta.partition.list`
+
+`seqret -sequence Gene_tree.CV20.blocks.fasta -outseq Gene_tree.CV20.blocks.nex -osformat nexus`
+
+`perl partition_nex.pl Gene_tree.CV20.blocks.fasta Gene_tree.CV20.blocks.fasta.partition.list 03_CV20`
 ### run mcmctree
-`mcmctree 01_CV20_step1.ctl
-ln -s ../step1/out.BV in.BV
-mcmctree 01_CV20_step2.ctl`
+`mcmctree 01_CV20_step1.ctl`
+
+`ln -s ../step1/out.BV in.BV`
+
+`mcmctree 01_CV20_step2.ctl`
+
