@@ -76,10 +76,12 @@ The window gene tree was generated with iqtree
 `perl partition_nex.pl Gene_tree.CV20.blocks.fasta Gene_tree.CV20.blocks.fasta.partition.list 03_CV20`
 
 3. Run mcmctree
+
 `mcmctree 01_CV20_step1.ctl`
 
 `ln -s ../step1/out.BV in.BV`
 
 `mcmctree 01_CV20_step2.ctl`
+
 
 
