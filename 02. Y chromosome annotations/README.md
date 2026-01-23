@@ -29,3 +29,10 @@ The pipeline integrates public and custom tools to annotate the following featur
 - [paf2chain](https://github.com/AndreaGuarracino/paf2chain) v0.1.0
 - [CrossMap](https://github.com/liguowang/CrossMap) v0.5.2
 
+### Attribution and Copyright
+
+The script `dotplot.colors.r` and `dotplot.X_ref.r` is adapted from  
+**EDFig3a_dotplot_idy.R** in the [T2T-HG002Y project by Arang Rhie et al.](https://github.com/arangrhie/T2T-HG002Y), originally available at:  
+https://github.com/arangrhie/T2T-HG002Y/blob/main/alignments/lastz/EDFig3a_dotplot_idy.R
+
+The plotting style belong to the authors of the T2T-HG002Y project. Modifications in this repository were made solely to match our dataset and annotation structure.
