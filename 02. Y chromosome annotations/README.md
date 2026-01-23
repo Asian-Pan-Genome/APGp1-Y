@@ -28,3 +28,6 @@ The pipeline integrates public and custom tools to annotate the following featur
 - [chaintools](https://github.com/milkschen/chaintools) v0.1
 - [paf2chain](https://github.com/AndreaGuarracino/paf2chain) v0.1.0
 - [CrossMap](https://github.com/liguowang/CrossMap) v0.5.2
+
+## 01 Gene annotations were transferred from CHM13-Y using Liftoff 
+
