@@ -21,7 +21,7 @@ mv sample.* ./sample
 ```bash
 lastz sample.chrY.softmasked.fa sample.chrY.softmasked.fa --ungapped --filter=identity:80 --filter=nmatch:400 --hspthresh=36400 --format=general-:name1,start1,end1,name2,start2,end2,strand2,nmatch > sample_to_chrY.masked.anchors
 lastz sample.chrY.softmasked.fa sample.chrY.softmasked.fa --segments=sample_to_chrY.masked.anchors --filter=identity:80 --filter=nmatch:1000 --allocate:traceback=1.99G --format=general:name1,zstart1,end1,name2,strand2,zstart2+,end2+,id%,cigarx --rdotplot+score=sample_to_chrY.masked.dots > sample_to_chrY.masked.dat
-cat sample_to_chrY.masked.dat | python /share/home/zhanglab/user/liujing/nqy/software/palindrover/palindrover.py --identity=98% --length=2K | awk -F'\t' '{NF--; $1=$1}1' >  sample_Newpal.bed
+cat sample_to_chrY.masked.dat | python ~/software/palindrover/palindrover.py --identity=98% --length=2K | awk -F'\t' '{NF--; $1=$1}1' >  sample_Newpal.bed
 ```
 # 4.2 Ampliconic Region Annotation
 ```bash
