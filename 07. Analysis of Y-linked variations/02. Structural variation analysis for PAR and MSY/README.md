@@ -29,6 +29,7 @@ Now, the file `CHM13_PAR1.filter.SVs.merge.vcf` could be used for downstream ana
 To quantify the population stratification for multiallelic SVs in haploid form, we calculated [HFst](https://doi.org/10.1093/genetics/132.2.583) with a custom script:
 ```
 python scripts/get_allele_per_pos_for_per_sample_from_vcf.py CHM13_PAR1.filter.SVs.merge.vcf CHM13_PAR1.filter.SVs.merge
+
 # Here one should provide a list file (tab-delimited) as: `sample_id\tsource\tpop`, where `source` could be APGp1, HPRCy1, HGSVC3, et al. `PAR1.id.list` file is an example.
 # One should edit the script to work with their data. Here, we just calculate HFst comparing APGp1 samples with others.
 python scripts/calculating_fst_from_vcf_bed.py CHM13_PAR1.filter.SVs.merge.vcf.bed PAR1.id.list CHM13_PAR1.filter.SVs.merge.vcf.bed
