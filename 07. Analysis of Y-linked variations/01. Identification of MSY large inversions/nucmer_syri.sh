@@ -17,5 +17,5 @@ nucmer --maxmatch -c 500 -b 500 -l 1000 -t 8 ${ref_name}.fa ${qry_name}.fa -p ${
 delta-filter -m -i 95 -l 1000 ${qry_name}.delta > ${qry_name}.i95_l1000.delta
 show-coords -THrd ${qry_name}.i95_l1000.delta > ${qry_name}.i95_l1000.coords
 rm ${qry_name}.delta
-/share/home/zhanglab/user/nielei/miniconda3/envs/syri/bin/syri -c ${qry_name}.i95_l1000.coords -d ${qry_name}.i95_l1000.delta -r ${ref_name}.fa -q ${qry_name}.fa --prefix ${qry_name}
+syri -c ${qry_name}.i95_l1000.coords -d ${qry_name}.i95_l1000.delta -r ${ref_name}.fa -q ${qry_name}.fa --prefix ${qry_name}
 plotsr --sr ${qry_name}syri.out --genomes ${qry_name}.genomes.txt -H 3 -W 5 -o ${qry_name}.syri.pdf
