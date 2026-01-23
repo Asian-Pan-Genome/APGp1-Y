@@ -4,7 +4,7 @@
 
 To identify potential misassemblies in Y chromosome assemblies, we used two complementary approaches:
 
-- **NucFreq** (v0.1) was used to detect base-level discordance. HiFi reads were aligned and filtered (SAMtools flag 2308) to remove secondary and low-quality mappings. Regions showing ≥10% support for a secondary base in ≥5 positions per 500 bp window were flagged using `hetDetection.R`.
+- **NucFreq** (v0.1) was used to detect base-level discordance. HiFi reads were aligned and filtered (SAMtools flag 2308) to remove secondary and low-quality mappings. Regions showing ≥10% support for a secondary base in ≥5 positions per 500 bp window were flagged using `hetDetection.R`(public code).
   
 - **Flagger** (v0.3.2) was used for structural error detection based on read coverage anomalies. Y chromosome–specific regions were extracted from genome-wide Flagger results, including categories such as erroneous, collapsed, and duplicated regions.
 
