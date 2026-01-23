@@ -1,4 +1,4 @@
-## Step1. Extract amplicon sequences from AMPL7_hap.amplicons.renamed.bed
+### Step1. Extract amplicon sequences from AMPL7_hap.amplicons.renamed.bed
 
 `perl extract_fasta_and_nucmer_shell.pl AMPL7.175_hap.sam_list amplicon.rename.list AMPL7_hap.amplicons.renamed.bed Amplicons.length_threshold 01.extract_amp_fasta.sh`
 
@@ -13,7 +13,7 @@ For example:
 nucmer -t 8 --mum -p Blue/NA20509.b4 Blue/HG03248.b2.fa Blue/NA20509.b4.fa && delta-filter -i 95 -o 95 Blue/NA20509.b4.delta -1 > Blue/NA20509.b4.best.delta && show-snps -r -T Blue/NA20509.b4.best.delta > Blue/NA20509.b4.align.txt && ~/Software/synPlot/bin/nucmer2SNP_InDel.pl Blue/NA20509.b4.align.txt Blue/NA20509.b4.align.snp.txt Blue/NA20509.b4.align.indel.txt
 ```
 Sbatch the 02.numcer_*.sh to run nucmer to call variants for each amplicon subgroup of each individual, with references: HG03248.r1, HG03248.b2, HG03248.g1 and HG03248.gy1, respectively. The fasta files for the references were provided in the directory.
-## Step2. Extract SNP & INDEL for each amplicon family
+### Step2. Extract SNP & INDEL for each amplicon family
 ```
 perl extract_variant_allele.pl Gray && perl extract_variant_allele.pl Green && perl extract_variant_allele.pl Red && perl extract_variant_allele.pl Blue
 ```
@@ -41,7 +41,7 @@ perl nucmersite_to_vcf.pl Blue.fasta.list Blue.INDEL.ins_allele.list Blue.INDEL_
 perl Variant_merge.pl Blue.INDEL_DEL.vcf Blue.INDEL_INS.vcf Blue.SNP.vcf Blue.all.merge.vcf
 python pca_from_vcf.py --vcf Blue.all.merge.vcf --out Blue --pca_n 10
 ```
-## Step3. Diagnostic sites specific to each amplicon subgroup were defined as positions at which the ‘alternative allele’ frequency differed from the reference by more than 0.90 in a given subgroup (e.g., r1 or g3), or in a pair of subgroups (e.g., r3/r4 or b1/b2), relative to all other subgroups.
+### Step3. Diagnostic sites specific to each amplicon subgroup were defined as positions at which the ‘alternative allele’ frequency differed from the reference by more than 0.90 in a given subgroup (e.g., r1 or g3), or in a pair of subgroups (e.g., r3/r4 or b1/b2), relative to all other subgroups.
 #### Generate primary Diagnostic sites
 ```
 perl Red_div_site_cal.pl Red.all.merge.vcf 0.90 Red.subtypes.div_0.90.sites
@@ -67,7 +67,7 @@ python step2_quantify_CN.py --kmer_db Blue.selected_sites.amplicon_type.kmer.tsv
 perl KmerCount_merge.pl Amplicons.160_Sample.KmerCount.out
 python step3.pca_only_from_kmer_table.py --kmer_table Amplicons.160_Sample.KmerCount.out --n_pca 5 --out_prefix 160_Sample.PCA
 ```
-## Step4. Extract 31-mer frequency for the three micro-deletion types reported in the manuscript:
+### Step4. Extract 31-mer frequency for the three micro-deletion types reported in the manuscript:
 ```
 perl extract_kmer_frq.pl Three_types_DEL.list Amp.selected_sites.merged.r3.list Amplicons.160_Sample.KmerCount.out Amplicons.Three_DELs.KmerFrq.r3.out
 # Cal_normalized_depth
