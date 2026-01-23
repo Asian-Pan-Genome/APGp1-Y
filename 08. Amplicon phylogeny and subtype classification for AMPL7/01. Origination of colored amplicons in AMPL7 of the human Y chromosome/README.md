@@ -1,4 +1,4 @@
-### Curated AMPL7 annotations
+### Step1. Curated AMPL7 annotations
 
 `Amplicon annotations.zip`
 
@@ -6,14 +6,14 @@
 
 `bash AMPL7.self-align_dotplot.sh`
 
-### Annotate the amplicons for ape-Ys, for example, blue amplicon:
+### Step2. Annotate the amplicons for ape-Ys, for example, blue amplicon:
 #### extract amplicon sequences for HG002-Y
 ```
 bedtools getfasta -s -nameOnly -fi HG002.chrY.fa -bed HG002.chrY.ampl7.phylo_anno.bed -fo HG002.chrY.ampl7.phylo_anno.fa
 minimap2 -cx asm20 -t2 --cs Bonobo.chrY.fa HG002-G2_2.fa > Bonobo.HG002.paf
 perl convert_paftobed.pl Bonobo.HG002.paf 10000 Bonobo.HG002.bed
 ```
-### ML tree construction, for example, RED:
+### Step3. ML tree construction, for example, RED:
 ```
 mafft --thread 16 All_RED.fasta > All_RED.aligned.fasta
 clipkit All_RED.aligned.fasta -m gappy -o All_RED.trimmed.fasta
