@@ -5,7 +5,7 @@ This pipeline assesses the synteny of DYZ arrays between APGp1 individuals and H
 ### Prerequisites
 - [**NGenomeSyn**](https://github.com/hewm2008/NGenomeSyn) (v1.43)
 - [**Minimap2**](https://github.com/lh3/minimap2) (v2.26)
-- **Reference Annotation:** [`chm13v2.0_censat_v2.1.bed`](https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/annotation)
+- **Reference Annotation:** [`chm13v2.0_censat_v2.1.bed`](https://github.com/marbl/CHM13)
 
 
 ### Workflow
