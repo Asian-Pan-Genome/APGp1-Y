@@ -1,16 +1,15 @@
-## Phylogeny and variations among TSPY-FAM197Y units
-### Construct ML tree
+### Setp1. Construct ML tree
 ```
 mafft --auto --thread 16 All_samples.TSPY_units.fa > All_samples.TSPY_units.fas
 iqtree -s All_samples.TSPY_units.fas -T AUTO -bb 1000 -m TEST
 ```
-### Estimate Jaccard similarity
+### Setp2. Estimate Jaccard similarity
 ```
 kmer-db build -k 21 -t 8 All_TSPY_unit.fa.list All_TSPY_unit.K21
 kmer-db all2all -t 8 All_TSPY_unit.K21 All_TSPY_unit.K21.common_tab
 kmer-db distance jaccard All_TSPY_unit.K21.common_tab All_TSPY_unit.K21.common_tab.jaccard
 ```
-### Mutation profiles among TSPY-FAM197Y units
+### Setp3. Mutation profiles among TSPY-FAM197Y units
 #### Run nucmer to call SNPs and INDELs for each TSPY-FAM197Y unit, using HG01890.TSPY2_unit.fa as reference. For example:
 ```
 nucmer -t 1 --mum -p KOR01-TSPY2 HG01890.TSPY2_unit.fa KOR01.TSPY2_unit.fa
@@ -22,13 +21,13 @@ show-snps -r -T KOR01-TSPY2.best.delta > KOR01-TSPY2.align.txt
 ```
 bash nucmer_to_vcf.workflow.sh
 ```
-### PCA analysis
+### Setp4. PCA analysis
 ```
 vcftools --vcf All.TSPY_unit.all.merge.vcf --plink --out All.TSPY_unit.all.merge.vcf.pca
 plink --noweb --file All.TSPY_unit.all.merge.vcf.pca --make-bed --out All.TSPY_unit.all.merge.vcf.pca_bfile
 plink --threads 4 --bfile All.TSPY_unit.all.merge.vcf.pca_bfile --pca 3 --out All.TSPY_unit.all.merge.vcf.pca_bfile
 ```
-### PAML analysis
+### Setp5. PAML analysis
 #### CDS align
 ```
 mafft --auto --maxiterate 1000 --thread 4 Representive_samples.TSPY_CDS.fa > Representive_samples.TSPY_CDS.fas
