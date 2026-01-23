@@ -1,32 +1,27 @@
-# Y Chromosome Annotation Pipeline
+# 02 Subregion annotation
 
-This repository provides the annotation workflow, scripts, and key resources used for annotating **Y chromosomal subregions**, including satellites, amplicons, palindromes, genes, and repeats.
-
-## Overview
-
-The pipeline integrates public and custom tools to annotate the following features on `chrY` assemblies:
-
-- Subregion classification via **coordinate liftover** from CHM13v2.0  
-- Gene and pseudogene transfer via **Liftoff**  
-- Repeat annotation with **RepeatMasker**  
-- Satellite (DYZ1/DYZ2) detection using **k-mer**, **GC content**, and **HMMER**  
-- Ampliconic region detection via **Winnowmap**-based alignment  
-- Palindromic and IR structure identification via **self-alignment and Palindrover**  
-- Manual curation of ambiguous regions
-
-## Key Tools & Versions
-
-- [nf-LO](https://github.com/evotools/nf-LO) v1.8.0  
-- [Liftoff](https://github.com/agshumate/Liftoff) v1.6.3  
-- [RepeatMasker](https://github.com/Dfam-consortium/RepeatMasker) v4.1.2 + Dfam 3.3  
-- [Assembly_HSat2and3_v2.pl](https://github.com/altemose/chm13_hsat)  
-- [HMMER](https://github.com/EddyRivasLab/hmmer) v3.4  
-- [Winnowmap](https://github.com/marbl/Winnowmap) v2.03  
-- [Palindrover](https://github.com/makovalab-psu/T2T_primate_XY/tree/main/palindrover_maf_align)  
-- [Lastz](https://github.com/lastz/lastz) v1.04.00
-- [R](https://www.r-project.org/) v4.1.3
-- [chaintools](https://github.com/milkschen/chaintools) v0.1
-- [paf2chain](https://github.com/AndreaGuarracino/paf2chain) v0.1.0
-- [CrossMap](https://github.com/liguowang/CrossMap) v0.5.2
-
-
+**Generate chain files using nf-LO:**
+```bash
+  nextflow run nf-LO-1.8.0 \
+    --source CHM13.chrY.fa \
+    --target sample.chrY.fasta \
+    --outdir sample_dir \
+    -profile conda --aligner minimap2
+  rm -r work
+```
+**process chain file with CHM13:**
+```bash
+python ~/Software/chaintools-0.1/src/split.py -c sample_dir/liftover.chain -o sample.CHM13.split.chain
+python ~/Software/chaintools-0.1/src/to_paf.py -c sample.CHM13.split.chain  -t CHM13.chrY.fa -q sample.chrY.fasta -o sample.CHM13.split.paf
+cat sample.CHM13.split.paf | rb break-paf --max-size 10000  | rb trim-paf -r | rb invert | rb trim-paf -r | rb invert > sample.CHM13.out.paf
+~/Software/paf2chain/paf2chain -i sample.CHM13.out.paf > sample.CHM13.out.chain
+rm sample.CHM13.chain sample.CHM13.split.chain sample.CHM13.split.paf
+```
+**Liftover CHM13 class annotation to sample:**
+```bash
+CrossMap.py bed sample.CHM13.out.chain CHM13.Y.class.bed > sample.chrY.sub_region.bed.CHM13_crossmap
+grep -v Unmap sample.chrY.sub_region.bed.CHM13_crossmap > sample.chrY.sub_region.bed.CHM13_crossmap.filter
+rm sample.chrY.sub_region.bed.CHM13_crossmap
+perl crossmap_region_merge.pl sample.chrY.sub_region.bed.CHM13_crossmap.filter sample.chrY.sub_region.bed.CHM13_based.anno
+#then manually trim the sample.chrY.sub_region.bed.CHM13_based.anno
+```
