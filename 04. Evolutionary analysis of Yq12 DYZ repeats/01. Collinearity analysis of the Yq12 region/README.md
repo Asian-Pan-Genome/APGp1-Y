@@ -16,10 +16,11 @@ To minimize misalignment, we generate two masked reference genomes based on HG00
 * **Ref 2:** Masks DYZ2 regions.
 
 #### 2. Assemblies are aligned independently to both masked references.
-···
+```bash
 minimap2 -t8 -cx asm5 --cs  HG002.maskDYZ1.fa ${sample}.chrY.fa  > ${sample}_chrY.map2chm13DYZ2.paf
+
 minimap2 -t8 -cx asm5 --cs  HG002.maskDYZ2.fa ${sample}.chrY.fa  > ${sample}_chrY.map2chm13DYZ1.paf
-···
+```
 #### 3. Synteny is visualized using NGenomeSyn.
 
 
