@@ -1,4 +1,4 @@
-This section includes three major parts for the ANPL7 analysis.
+This section includes includes workflow and code scripts for for the AMPL7 haplotype analysis.
 
 1) Origination of colored amplicons in AMPL7 of the human Y chromosome
 
