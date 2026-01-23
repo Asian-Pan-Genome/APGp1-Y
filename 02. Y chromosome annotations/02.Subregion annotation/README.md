@@ -1,4 +1,4 @@
-#02 Subregion Annotation
+# 02 Subregion annotation
 
 **Generate chain files using nf-LO:**
 ```bash
