@@ -1,1 +1,1 @@
-liftoff C001-CHA-E01.chrY.fa CHM13.chrY.fa -sc 0.95 -copies -g chm13v2.0_RefSeq_Liftoff_v5.1.chrY_unique_ids.gff3 -polish -o C001-CHA-E01.chrY.CHM13.liftoff.gff -u C001-CHA-E01.chrY.CHM13.unmapped_features.txt -dir chrY_intermediate_files -f type.list -exclude_partial -p 10
+liftoff sample.chrY.fa CHM13.chrY.fa -sc 0.95 -copies -g chm13v2.0_RefSeq_Liftoff_v5.1.chrY_unique_ids.gff3 -polish -o sample.chrY.CHM13.liftoff.gff -u sample.chrY.CHM13.unmapped_features.txt -dir chrY_intermediate_files -f type.list -exclude_partial -p 10
