@@ -19,7 +19,7 @@ The **intersection and union** of NucFreq- and Flagger-flagged regions were comp
 
 - **GAVISUNK** (v1.0.0) was used to validate haplotype-resolved assemblies using ONT reads (20-mer default `SUNK_len`). Two Y assemblies were used as independent haplotypes.
 
-Representative visualizations from both tools are shown in *Supplementary Fig1. S3*, with some other results available under [`/gavisunk`]([https://github.com/QYNi/APG-Y/tree/main/evaluation/data/gavisunk](https://github.com/Asian-Pan-Genome/APGp1-Y/tree/main/01.%20Assembly%20and%20evaluation%20of%20160%20APGp1%20Y%20chromosomes/Y%20chromosome%20assembly%20evaluation/gavisunk).
+Representative visualizations from both tools are shown in *Supplementary Fig1. S3*, with some other results available under [`/gavisunk`]([https://github.com/QYNi/APG-Y/tree/main/evaluation/data/gavisunk](https://github.com/Asian-Pan-Genome/APGp1-Y/tree/main/01.%20Assembly%20and%20evaluation%20of%20160%20APGp1%20Y%20chromosomes/Y%20chromosome%20assembly%20evaluation/gavisunk)).
 
 ---
 
