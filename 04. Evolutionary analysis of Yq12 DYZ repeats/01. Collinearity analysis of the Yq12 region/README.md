@@ -11,7 +11,7 @@ This pipeline assesses the synteny of DYZ arrays between APGp1 individuals and H
 ### Workflow
 
 #### 1. Generate Masked References
-To minimize misalignment, we generate two masked reference genomes based on HG002-Y DYZ annotations.
+To minimize misalignment, we generate two masked reference genomes based on HG002-Y DYZ **Reference Annotation**.
 * **Ref 1:** Masks DYZ1 regions.
 * **Ref 2:** Masks DYZ2 regions.
 
