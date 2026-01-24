@@ -3,7 +3,8 @@
 ## 5.1 Broad Region Identification
 
 ### DYZ1 (HSat3 Homologs)
-**5.11** [`Assembly_HSat2and3_v2.pl`](https://github.com/altemose/chm13_hsat)
+**5.11** HSAT3 region defined by [`Assembly_HSat2and3_v2.pl`](https://github.com/altemose/chm13_hsat)
+
 **5.12 Great Ape HSat3 Homologs:**
 - Used [CHM13v2.0 annotations](https://github.com/marbl/CHM13) as the reference.
 - Calculated pairwise distances between Ape HSat3 and Human repeats.
