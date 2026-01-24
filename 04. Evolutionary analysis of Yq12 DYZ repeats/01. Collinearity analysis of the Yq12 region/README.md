@@ -1,4 +1,4 @@
-# 01. Collinearity Analysis of the Yq12 Region
+## Collinearity Analysis of the Yq12 Region
 
 This pipeline assesses the synteny of DYZ arrays between APGp1 individuals and HG002-Y.
 
