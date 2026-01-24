@@ -1,4 +1,4 @@
-# 05 Yq12 (DYZ1 / DYZ2) Annotation
+## Yq12 (DYZ1 / DYZ2) Annotation
 **RepeatMasker:**
 ```bash
 RepeatMasker -pa 8  -species human -e ncbi -dir output_dir -gff sample.chrY.fasta
