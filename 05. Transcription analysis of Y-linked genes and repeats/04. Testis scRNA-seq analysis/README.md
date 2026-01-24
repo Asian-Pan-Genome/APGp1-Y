@@ -1,1 +1,1 @@
-
+Adult testis single-cell RNA-seq datasets(Cui et al., 2025) include SRR15613722, SRR15613723, SRR15613729, SRR27645708, SRR27645721 and SRR27645730.
