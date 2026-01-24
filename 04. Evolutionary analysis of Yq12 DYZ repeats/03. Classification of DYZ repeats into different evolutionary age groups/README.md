@@ -8,6 +8,7 @@ Initial processing was performed using **VSEARCH** (v2.29.0).
 * **Clustering:** High-confidence core subtype units were identified using `--cluster_fast` with the following identity thresholds:
     * **DYZ1:** --id 0.99
     * **DYZ2:** --id 0.993
+
 **DYZ2 Alu and HSATI:**
 ```
 vsearch --fastx_filter all.Alu_sat.fa --fastaout all.Alu_sat.filter.fa --fastq_minlen 800
