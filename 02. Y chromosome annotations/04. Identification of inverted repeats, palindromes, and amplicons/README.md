@@ -1,5 +1,5 @@
 
-# 4.1 Palindrome Annotation
+## 04. Palindrome Annotation
 **Mapping(IR for example)**
 ```bash
 mkdir -p kmer
