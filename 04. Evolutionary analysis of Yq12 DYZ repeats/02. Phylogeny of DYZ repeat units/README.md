@@ -1,4 +1,4 @@
-# Phylogeny Pipeline
+## Phylogeny Pipeline for DYZ repeats
 
 ### DYZ1: K-mer Approach
 This module analyzes DYZ1 repeats by calculating Mash distances on ~10Kb segmented HSat3 bins.
