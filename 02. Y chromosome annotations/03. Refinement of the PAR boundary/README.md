@@ -1,4 +1,4 @@
-## 03. PAR Boundary Refinement
+## PAR Boundary Refinement
 ```bash
 lastz sample.chrX.fasta sample.chrY.fasta --filter=identity:80 --filter=nmatch:400 --hspthresh=36400 > anchors
 lastz sample.chrX.fasta sample.chrY.fasta --segments=anchors --filter=nmatch:1000 --allocate:traceback=800M --format=general > align.dat
