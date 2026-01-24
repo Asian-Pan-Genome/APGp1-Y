@@ -1,1 +1,1 @@
-
+Iso-seq data were from adult testis (SRR12544672, SRR12544673 and SRR31360662), adult brain (SRR28012723 and SRR28012724), lymphocytes (ERR12944321 and ERR12944331), and human embryonic stem cells (hESC; SRR25855040).
