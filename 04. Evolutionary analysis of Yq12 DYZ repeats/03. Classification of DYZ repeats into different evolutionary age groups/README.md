@@ -24,13 +24,18 @@ Maximum likelihood trees were constructed using the **GTR+F+G4** substitution mo
     * T2T-CHM13v2 acrocentric HSat1B repeats.
     * Homologous sequences from Great Apes.
     * *Validation:* Topology consistency was verified by constructing separate trees for isolated HSATI and AluY components (see Fig. S10).
+```
+mafft --thread 16 all.fa > all.align.fa
+mkdir -p treeout
+iqtree -s all.align.fa -T AUTO -bb 1000 -bnni -m  GTR+F+G4 --prefix treeout/all.alu.align
+```
 
 ### 3. PCA Analysis (K-mer based)
 To resolve sequence heterogeneity without multiple sequence alignment, we employed a k-mer based dimensionality reduction.
-* **Method:** 15-mer frequency feature matrices.
-* **Library:** `scikit-learn` (PCA module).
-* **Input:** DYZ1 units, DYZ2 composite units, and isolated components.
-* **Visualization:** The first two principal components (PC1 & PC2) were used to visualize clustering.
+```
+python runmodule.py
+python plot.py
+```
 
 ---
 
