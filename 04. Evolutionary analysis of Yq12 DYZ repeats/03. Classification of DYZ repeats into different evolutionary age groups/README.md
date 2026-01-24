@@ -6,9 +6,14 @@ To delineate internal subgroups within the Yq12 region, we analyzed sequences fr
 Initial processing was performed using **VSEARCH** (v2.29.0).
 * **Filtering:** Redundant sequences and fragmented units were removed (Length thresholds: DYZ1 < 3,000 bp; DYZ2 HSATI-AluY < 800 bp).
 * **Clustering:** High-confidence core subtype units were identified using `--cluster_fast` with the following identity thresholds:
-    * **DYZ1:** 0.99
-    * **DYZ2:** 0.993
-* *Output:* Centroids of these clusters were used as representatives for phylogenetic reconstruction.
+    * **DYZ1:** --id 0.99
+    * **DYZ2:** --id 0.993
+**DYZ2 Alu and HSATI:**
+```
+vsearch --fastx_filter all.Alu_sat.fa --fastaout all.Alu_sat.filter.fa --fastq_minlen 800
+vsearch --derep_fulllength all.Alu_sat.filter.fa --output all.Alu_sat.uniq.fa --sizeout --uc filter.dup.info
+vsearch --cluster_fast all.Alu_sat.uniq.fa --id 0.993 --iddef 0  --centroids all.Alu_sat.uniq.993.cen.fa --uc filter.993cen.u
+```
 
 ### 2. Phylogenetic Reconstruction
 Maximum likelihood trees were constructed using the **GTR+F+G4** substitution model (selected for consistency with HG002-Y analysis).
