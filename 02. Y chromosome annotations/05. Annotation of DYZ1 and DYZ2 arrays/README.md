@@ -3,16 +3,22 @@
 ## 5.1 Broad Region Identification
 
 ### DYZ1 (HSat3 Homologs)
-* **5.11** [`Assembly_HSat2and3_v2.pl`](https://github.com/altemose/chm13_hsat)
-* **5.12 Great Ape HSat3 Homologs:**
-- Used [CHM13v2.0 annotations]() as the reference.
-- Calculated pairwise distances between Ape HSat3 and Human HG002 repeats.
-    * Tool: `kmer-db` (v1.11.1) with **k=9**.
+**5.11** [`Assembly_HSat2and3_v2.pl`](https://github.com/altemose/chm13_hsat)
+**5.12 Great Ape HSat3 Homologs:**
+- Used [CHM13v2.0 annotations](https://github.com/marbl/CHM13) as the reference.
+- Calculated pairwise distances between Ape HSat3 and Human repeats.
+```
+kmer-db build -k 9 -t 8 CHM13.HSAT3.10k.list human.HSat3.Kmer9
+kmer-db new2all -t 8 human.HSat3.Kmer9  Bon.HSat3.10k.list Bon.HSAT3.Kmer9.common_tab
+kmer-db distance mash Bon.HSAT3.Kmer9.common_tab
+python generate_top3_matches_generic.py Bon.HSAT3.Kmer9.common_tab.mash Bon
+```
+
 
 ### DYZ2 (HSat1 Subfamilies)
 Regions were classified based on RepeatMasker output:
-* **HSat1A:** Regions identified as 'SAR'.
-* **HSat1B (DYZ2 Units):** Defined as a combination of:
+**HSat1A:** Regions identified as 'SAR'.
+**HSat1B (DYZ2 Units):** Defined as a combination of:
     `HSATI` + `AluY` (same orientation) + `(AT)n` repeats.
 ```bash
 RepeatMasker -pa 8  -species human -e ncbi -dir output_dir -gff sample.chrY.fasta
