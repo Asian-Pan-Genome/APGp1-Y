@@ -1,1 +1,1 @@
-
+The prostate cancer cohort short-read sequencing data(Li et al., 2020) were obtained from the Genome Sequence Archive for Human (GSA-Human; http://bigd.big.ac.cn/gsa-human), under accession number PRJCA001124.
