@@ -1,7 +1,7 @@
-# Filter out invalid PAR sequences and make the sequence list
-@qingyang
+## Filter out invalid PAR sequences
+For the fragmented assemblies in PARs of some HPRCy1/HGSVC2 samples, their contigs were aligned to the CHM13v2.chrX PARs using Minimap2 (v2.26). Alignment intervals separated by < 50Kb were merged, and contigs shorter than 20Kb were excluded. Samples with any haplotype covering < 90% of the reference PAR regions were excluded from downstream pangenome construction. 
 
-# Construct MC pangenomes for PAR1 and PAR2 and perform variants decomposition
+## Construct MC (Minigraph-Cactus) pangenomes for PARs and MSY, and perform variant decomposition
 Here, use the command constructing the PAR1 pangenome as an example:
 ```
 cactus-pangenome ./PAR1.js ./PAR1.seq.file --outDir ./CHM13_PAR1 --outName CHM13_PAR1 \
@@ -11,7 +11,7 @@ cactus-pangenome ./PAR1.js ./PAR1.seq.file --outDir ./CHM13_PAR1 --outName CHM13
                  --mapCores 30 --indexCores 30 --mgMemory 150G --consMemory 150G --indexMemory 150G
 ```
 
-# Extract and collapse SVs
+## Extract and collapse SVs
 Due to the conflict alignment of contigs, we should filter out records having zero allele count. Next, extract SV records:
 ```
 bcftools view -c 1 CHM13_PAR1.vcf.gz -Ov -o CHM13_PAR1.filter.vcf
@@ -25,7 +25,7 @@ python scripts/SV.merge.py CHM13_PAR1.filter.SVs.vcf CHM13_PAR1.filter.SVs.merge
 
 Now, the file `CHM13_PAR1.filter.SVs.merge.vcf` could be used for downstream analysis.
 
-# Calculate Hudson Fixation Index (HFst)
+## Calculate Hudson Fixation Index (HFst)
 To quantify the population stratification for multiallelic SVs in haploid form, we calculated [HFst](https://doi.org/10.1093/genetics/132.2.583) with a custom script:
 ```
 python scripts/get_allele_per_pos_for_per_sample_from_vcf.py CHM13_PAR1.filter.SVs.merge.vcf CHM13_PAR1.filter.SVs.merge
