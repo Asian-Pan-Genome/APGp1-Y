@@ -1,6 +1,6 @@
 # 04 Characteriazation of DYZ subgroup distribution on Yq12 
 
-#### Global Array Distribution (Whole Yq12)
+#### Global Array Distribution (Yq12)
 To compare distribution patterns across Y chromosomes of varying lengths:
 * **Scaling:** The entire Yq12 array was normalized to a uniform scale.
 * **Binning:** Partitioned into **40 equal-sized bins**.
