@@ -1,5 +1,5 @@
 # Y Chromosome Phylogeny & Yq12 Evolutionary Analysis
-This repository provides the analytical workflow, scripts, and key resources used for Y chromosome haplogroup classification, MSY phylogeny construction, and the evolutionary characterization of DYZ1/DYZ2 repeats in the Yq12 region.
+This repository provides the analytical workflow, scripts, and key resources used for the evolutionary characterization of DYZ1/DYZ2 repeats in the Yq12 region.
 
 ## Overview
 The pipeline integrates public and custom tools to perform the following analyses on chrY assemblies:
