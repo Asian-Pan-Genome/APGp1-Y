@@ -1,8 +1,8 @@
-# Y Chromosome Annotation Pipeline
+## Y Chromosome Annotation Pipeline
 
 This repository provides the annotation workflow, scripts, and key resources used for annotating **Y chromosomal subregions**, including satellites, amplicons, palindromes, genes, and repeats.
 
-## Overview
+### Overview
 
 The pipeline integrates public and custom tools to annotate the following features on `chrY` assemblies:
 
@@ -14,7 +14,7 @@ The pipeline integrates public and custom tools to annotate the following featur
 - Palindromic and IR structure identification via **self-alignment and Palindrover**  
 - Manual curation of ambiguous regions
 
-## Key Tools & Versions
+### Key Tools & Versions
 
 - [nf-LO](https://github.com/evotools/nf-LO) v1.8.0  
 - [Liftoff](https://github.com/agshumate/Liftoff) v1.6.3  
