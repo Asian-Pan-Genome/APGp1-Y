@@ -1,7 +1,7 @@
-# Y Chromosome Phylogeny & Yq12 Evolutionary Analysis
+## Yq12 Evolutionary Analysis
 This repository provides the analytical workflow, scripts, and key resources used for the evolutionary characterization of DYZ1/DYZ2 repeats in the Yq12 region.
 
-## Overview
+### Overview
 The pipeline integrates public and custom tools to perform the following analyses on chrY assemblies:
 
 - Collinearity analysis of the Yq12 region
@@ -14,7 +14,7 @@ The pipeline integrates public and custom tools to perform the following analyse
 
 - Sequence divergence analysis for DYZ repeats
 
-## Key Tools & Versions
+### Key Tools & Versions
 
 - [SAMtools](http://www.htslib.org/) v1.9
 - [IQ-TREE](http://www.iqtree.org/) v2.1.4
