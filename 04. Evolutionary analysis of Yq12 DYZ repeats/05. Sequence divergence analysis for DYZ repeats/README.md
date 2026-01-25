@@ -1,4 +1,4 @@
-# Sequence divergence analysis for DYZ repeats
+## Sequence divergence analysis for DYZ repeats
 
 **divwithcons:** This script calculates the mismatch-based divergence metrics
 ```bash
