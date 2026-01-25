@@ -19,6 +19,7 @@ The accuracy of this method was first validated using APGp1 samples. We compared
     * Duplicate marking via **Picard**.
 
 **2. Copy Number Estimation Strategy**
+
 We utilized a **normalized read depth approach** to calculate copy numbers:
 1.  **Depth Calculation:**
     * Calculate average sequencing depth across the **TSPY array region**.
