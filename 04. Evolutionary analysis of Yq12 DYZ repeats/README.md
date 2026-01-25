@@ -24,5 +24,5 @@ The pipeline integrates public and custom tools to perform the following analyse
 - [MAFFT](https://mafft.cbrc.jp/alignment/software/) v7.505
 - [FastME](http://www.atgc-montpellier.fr/fastme/) v2.0
 - [BEDtools](https://bedtools.readthedocs.io/) v2.31.0
-- [scikit-learn](https://scikit-learn.org/) 
 - [iTOL](https://itol.embl.de/) v7.4
+- [scikit-learn](https://scikit-learn.org/) 
