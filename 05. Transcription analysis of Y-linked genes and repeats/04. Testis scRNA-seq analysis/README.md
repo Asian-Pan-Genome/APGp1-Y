@@ -9,7 +9,7 @@ We utilized publicly available scRNA-seq datasets covering a broad age spectrum 
 ## Key Tools & Versions
 
 - Cell Ranger v9.0.1
-- [scTE](https://github.com/Japrin/scTE) v1.0 (Single-cell Transposable Element quantification)
+- [scTE](https://github.com/JiekaiLab/scTE) v1.0 (Single-cell Transposable Element quantification)
 - Scanpy v1.11.0
 
 ## Analysis Workflow
