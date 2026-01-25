@@ -25,10 +25,6 @@ We utilized a **normalized read depth approach** to calculate copy numbers:
     * Calculate average sequencing depth across **X-degenerate regions (XDRs)**. XDRs serve as a stable normalization baseline as they permit unique mapping of short reads.
 2.  **Normalization Logic:**
     The raw depth ratio is scaled relative to the known TSPY copy number in the HG002-Y reference assembly.
-    > **Formula:** Estimated CN = (Depth_TSPY / Depth_XDR) × Scaling_Factor_HG002
-### 3. Application
-* **Validation:** Concordance between short-read estimates and assembly-based counts was visualized to ensure reliability.
-* **Deployment:** The validated pipeline was subsequently applied to the prostate cancer cohort.
-
+    **Formula:** Estimated CN = (Depth_TSPY / Depth_XDR) × Scaling_Factor_HG002
 
 The prostate cancer cohort short-read sequencing data(Li et al., 2020) were obtained from the Genome Sequence Archive for Human (GSA-Human; http://bigd.big.ac.cn/gsa-human), under accession number PRJCA001124.
