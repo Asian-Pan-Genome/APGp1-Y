@@ -2,8 +2,6 @@
 
 This section outlines the computational workflow used to model the 3D structures of TSPY proteins and assess the functional impact of the O2a-specific mutation (p.E85G) and exonic variants.
 
-
-
 ## Key Tools & Versions
 
 - [AlphaFold3](https://github.com/google-deepmind/alphafold3) (Abramson et al., 2024) - 3D Structure Prediction
@@ -21,6 +19,9 @@ To evaluate the impact of the **O2a specific mutation (p.E85G)**, we compared th
 * **FOXA1** (Forkhead box protein A1)
 
 ```
-python visual_DeepTrio.py --protein1 TSPY2_Ref.pdb --protein2 AR.pdb --out output_ref
-python visual_DeepTrio.py --protein1 TSPY2_Mut.pdb --protein2 AR.pdb --out output_mut
+python ~/software/deeptrio/main.py -p1 tspy2.fa -p2 ERG.fa   -m ~/software/deeptrio/scripts/DeepTrio/models/visualization/DeepTrio_acc_human.h5 -o TSPY2_ERG
+python ~/software/deeptrio/main.py -p1 tspy2_O.fa -p2 ERG.fa   -m ~/software/deeptrio/scripts/DeepTrio/models/visualization/DeepTrio_acc_human.h5 -o TSPY2O2_ERG
+python ~/software/deeptrio/visual_DeepTrio2.py -p1 tspy2_O.fa -p2 ERG.fa -m ~/software/deeptrio/scripts/DeepTrio/models/visualization/DeepTrio_acc_human.h5
+python ~/software/deeptrio/visual_DeepTrio2.py -p1 tspy2.fa -p2 ERG.fa -m ~/software/deeptrio/scripts/DeepTrio/models/visualization/DeepTrio_acc_human.h5
+python plotline.py TSPY2_O2a_with_respect_to_ERG_heatmap_data.txt TSPY2_with_respect_to_ERG_heatmap_data.txt ERG.pdf
 ```
