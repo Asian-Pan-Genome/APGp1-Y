@@ -5,7 +5,7 @@ This section outlines the computational workflow used to model the 3D structures
 ## Key Tools & Versions
 
 - [AlphaFold3](https://github.com/google-deepmind/alphafold3) (Abramson et al., 2024) - 3D Structure Prediction
-- [DeepTrio](https://github.com/tiancj2016/DeepTrio) v1.0.0 (Hu et al., 2022) - PPI Prediction
+- [DeepTrio](https://github.com/huxiaoti/deeptrio) v1.0.0 (Hu et al., 2022) - PPI Prediction
 
 ## Analysis Workflow
 
