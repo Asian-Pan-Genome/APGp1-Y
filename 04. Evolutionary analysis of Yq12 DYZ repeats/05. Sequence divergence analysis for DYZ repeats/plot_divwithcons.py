@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 
 
 plt.rcParams['pdf.fonttype'] = 42
-df_dyz1 = pd.read_csv('C001-CHA-E01.DYZ1div.bed', sep='\t', header=None, names=['start', 'end', 'div'])
-df_dyz2 = pd.read_csv('C001-CHA-E01.DYZ2div.bed', sep='\t', header=None, names=['start', 'end', 'div'])
+df_dyz1 = pd.read_csv('C001-CHA-E01.DYZ1div', sep='\t', header=None, names=['start', 'end', 'div'])
+df_dyz2 = pd.read_csv('C001-CHA-E01.DYZ2div', sep='\t', header=None, names=['start', 'end', 'div'])
 df_dyz1['start']=df_dyz1['start']/1000000
 df_dyz1['end']=df_dyz1['end']/1000000
 df_dyz2['start']=df_dyz2['start']/1000000
