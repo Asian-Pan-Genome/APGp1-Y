@@ -11,8 +11,6 @@ We utilized publicly available scRNA-seq datasets covering a broad age spectrum 
 - [Cell Ranger](https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger) v9.0.1
 - [scTE](https://github.com/Japrin/scTE) v1.0 (Single-cell Transposable Element quantification)
 - [Scanpy](https://scanpy.readthedocs.io/) v1.11.0
-- [Harmony](https://github.com/slowkow/harmonypy) (Batch correction)
-- [Scrublet](https://github.com/swolock/scrublet) (Doublet detection)
 
 ## Analysis Workflow
 
