@@ -11,14 +11,14 @@ The accuracy of this method was first validated using APGp1 samples. We compared
 
 ## Analysis Workflow
 
-### 1. Alignment & Preprocessing: `get_fq2bam_shell.pl`
+**1. Alignment & Preprocessing:** `get_fq2bam_shell.pl`
 * **Reference:** T2T-CHM13v2.0
 * **Alignment:** Paired-end reads aligned using **BWA-MEM** with default parameters.
 * **Post-processing:**
     * Sorting and indexing via **SAMtools**.
     * Duplicate marking via **Picard**.
 
-### 2. Copy Number Estimation Strategy
+**2. Copy Number Estimation Strategy**
 We utilized a **normalized read depth approach** to calculate copy numbers:
 1.  **Depth Calculation:**
     * Calculate average sequencing depth across the **TSPY array region**.
