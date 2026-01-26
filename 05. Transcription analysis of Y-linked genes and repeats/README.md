@@ -1,9 +1,10 @@
-This section includes workflow and code scripts for the transcription analysis of Y-linked genes and repeats.
+## Transcription analysis of Y-linked elements
+This section includes workflow and code scripts for the transcription analysis (lncRNA, piRNA, bulk and scRNA) of Y-linked genes, e.g., TSPY and DYZ repeats.
 
-1) DYZ1 lncRNA annotation
+- DYZ1 lncRNA annotation
 
-2) DYZ2 piRNA expression profiling
+- DYZ2 piRNA expression profiling
 
-3) Testis bulk RNA-seq analysis
+- Testis bulk RNA-seq analysis
 
-4) Testis scRNA-seq analysis
+- Testis scRNA-seq analysis
