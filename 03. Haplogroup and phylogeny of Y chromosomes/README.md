@@ -1,5 +1,6 @@
-This section includes workflow and code scripts for the Y-haplogroup and phylogeny analysis.
+## Y-haplogroup and phylogeny
+This section includes workflow and code scripts for the Y-haplogroup classification and phylogeny analysis.
 
-1) Y haplogroup classification for APGp1 individuals
+- Y haplogroup classification for APGp1 individuals
 
-2) MSY (Male specific Y) phylogeny based on assembly alignments
+- MSY (Male specific Y) phylogeny based on assembly alignments
