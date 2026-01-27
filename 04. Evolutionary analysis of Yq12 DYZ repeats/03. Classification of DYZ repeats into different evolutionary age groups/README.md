@@ -4,7 +4,7 @@ To delineate internal subgroups within the Yq12 region, we analyzed sequences fr
 
 ### 1. Data Processing & Clustering
 Initial processing was performed using **VSEARCH** (v2.29.0).
-* **Filtering:** Redundant sequences and fragmented units were removed (Length thresholds: DYZ1 < 3,000 bp; DYZ2 HSATI-AluY < 800 bp).
+* **Filtering:** Redundant sequences and fragmented units were removed (Length thresholds: DYZ1 < 1,000 bp; DYZ2 HSATI-AluY < 800 bp).
 * **Clustering:** High-confidence core subtype units were identified using `--cluster_fast` with the following identity thresholds:
     * **DYZ1:** --id 0.99
     * **DYZ2:** --id 0.993
