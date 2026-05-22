@@ -15,7 +15,7 @@ python ~/Software/chaintools-0.1/src/split.py -c sample_dir/liftover.chain -o sa
 python ~/Software/chaintools-0.1/src/to_paf.py -c sample.CHM13.split.chain  -t CHM13.chrY.fa -q sample.chrY.fasta -o sample.CHM13.split.paf
 cat sample.CHM13.split.paf | rb break-paf --max-size 10000  | rb trim-paf -r | rb invert | rb trim-paf -r | rb invert > sample.CHM13.out.paf
 ~/Software/paf2chain/paf2chain -i sample.CHM13.out.paf > sample.CHM13.out.chain
-rm sample.CHM13.chain sample.CHM13.split.chain sample.CHM13.split.paf
+rm sample.CHM13.split.chain sample.CHM13.split.chain sample.CHM13.split.paf
 ```
 **Liftover CHM13 class annotation to sample:**
 ```bash
