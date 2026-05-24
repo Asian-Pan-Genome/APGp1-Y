@@ -44,7 +44,6 @@ mkdir self_align
 cd self_align
 awk 'BEGIN{OFS="\t"} $4=="AMPL"{last_line="chr"$1 FS $2 FS $3 FS $4} END{print last_line}' sample.chrY.sub_region.bed.CHM13_based.anno > sample.ampl7
 sed 's/ /\t/g' sample.ampl7 > sample.ampl7.bed
-ln -s sample.chrY.fa ./sample.chrY.fa
 ln -s ../sample.amplicons.colors.txt.max ./
 awk -F'\t' 'BEGIN{OFS="\t"} {split($4,a,"."); $4=a[2]; print}' sample.amplicons.colors.txt.max >sample.amplicons.colors.txt.max2
 bash Elements_self_align.sh sample.chrY.fa sample.ampl7.bed sample.amplicons.colors.txt.max2
