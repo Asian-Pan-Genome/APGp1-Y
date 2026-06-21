@@ -17,7 +17,11 @@ Sbatch the 02.numcer_*.sh to run nucmer to call variants for each amplicon subgr
 ```
 perl extract_variant_allele.pl Gray && perl extract_variant_allele.pl Green && perl extract_variant_allele.pl Red && perl extract_variant_allele.pl Blue
 ```
-### Step3. Make marker chain for each sample
+#### Extract common variant (MAF >= 0.1)
+```
+perl Maf_filter.pl Blue.all.merge.vcf 0.1 Blue.all.merge.MAF0.1.vcf
+```
+### Step3. Make marker chain from amplicon vcf for each sample
 ```
 perl make_variant_marker_chain.pl Amplicon.rename.list short_blue.list AMPL7_hap.amplicons.renamed.r4.bed
 ```
