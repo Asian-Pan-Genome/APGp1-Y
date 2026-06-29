@@ -1,0 +1,1 @@
+Ref_Chr	Ref_Pos	Ref_REF	Ref_ALT	Sample	Genotype	Mapped_Region_Start	Mapped_Region_End	Orig_Query_Name

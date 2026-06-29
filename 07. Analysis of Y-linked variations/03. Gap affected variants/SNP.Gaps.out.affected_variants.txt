@@ -1,0 +1,3 @@
+Ref_Chr	Ref_Pos	Ref_REF	Ref_ALT	Sample	Genotype	Mapped_Region_Start	Mapped_Region_End	Orig_Query_Name
+chrY	863002	T	C	C058-N18	1|1	862806	863774	C058-N18#chrY:824144-826243_LeftFlank
+chrY	1336266	T	C	C003-E03	1|1	1335816	1336762	C003-E03#chrY:1495636-1497735_RightFlank
