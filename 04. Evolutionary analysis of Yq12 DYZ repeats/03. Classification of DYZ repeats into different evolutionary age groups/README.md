@@ -156,14 +156,14 @@ python validate_age_groups_by_kmer_pcoa.py \
   --fasta KOR08.DYZ1.uniq.fa \
   --annotations DYZ1.anno.tsv \
   --outdir KOR08_DYZ1 \
-  --k_values 15,21,25,31 \
+  --k_values 21,25,31 \
   --max_clusters 30
 
 python validate_age_groups_by_kmer_pcoa.py \
   --fasta C076-CHA-NE16.Alu_SAT.uniq.fa \
   --annotations DYZ2.anno.tsv \
   --outdir C076-CHA-NE16_DYZ2 \
-  --k_values 15,21,25,31 \
+  --k_values 21,25,31 \
   --max_clusters 30
 ```
 
