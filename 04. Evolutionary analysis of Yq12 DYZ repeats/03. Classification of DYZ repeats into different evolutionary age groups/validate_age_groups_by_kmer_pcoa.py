@@ -133,10 +133,12 @@ def mash_distance(matrix, k):
     with np.errstate(divide="ignore", invalid="ignore"):
         jaccard = np.where(unions > 0, intersections / unions, 0.0)
         distance = -(1.0 / k) * np.log(2.0 * jaccard / (1.0 + jaccard))
+    # Mash distance is conventionally bounded at 1.0. Undefined values arise
+    # when two sequences share no canonical k-mers and should therefore denote
+    # maximal, rather than zero, dissimilarity.
+    distance[~np.isfinite(distance)] = 1.0
+    np.clip(distance, 0.0, 1.0, out=distance)
     np.fill_diagonal(distance, 0.0)
-    finite = distance[np.isfinite(distance)]
-    distance[~np.isfinite(distance)] = finite.max() if finite.size else 1.0
-    distance[distance < 0] = 0.0
     return (distance + distance.T) / 2.0
 
 
